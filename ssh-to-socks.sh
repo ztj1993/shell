@@ -8,7 +8,7 @@
 # Version: 1.0.0
 ###############
 
-alias=${1}
+alias=${1:-default}
 data_dir=~/.ssh_to_socks
 config_file=${data_dir}/${alias}.conf
 ssh_host=${ssh_host:-proxyserver}
@@ -19,12 +19,13 @@ socks_address=${socks_address:-127.0.0.1}
 socks_port=${socks_port:-1080}
 
 type sshpass > /dev/null 2>&1
-[[ $? -ne 0 ]] && echo "Please install sshpass." && exit 1
+[[ $? -ne 0 ]] && echo ">>> Please install sshpass." && exit 1
 
 [[ -f ${config_file} ]] && echo ">>> source ${config_file}" && source ${config_file}
-[[ ! -f ${config_file} ]] && write_alias=${alias} && alias=""
+[[ ! -f ${config_file} ]] && alias=""
 
 [[ -z ${alias} ]] && read -p ">>> Please enter the write alias: " write_alias
+[[ -z ${alias} ]] && [[ -z ${write_alias} ]] && echo ">>> Please enter the write alias." && exit 1
 
 [[ -z ${alias} ]] && read -p ">>> Please enter the ssh host (default: ${ssh_host}): " read_ssh_host
 [[ -n ${read_ssh_host} ]] && ssh_host=${read_ssh_host}
@@ -45,6 +46,8 @@ type sshpass > /dev/null 2>&1
 [[ -n ${read_socks_port} ]] && socks_address=${read_socks_port}
 
 [[ -n ${write_alias} ]] && mkdir -p ${data_dir}
+[[ -n ${write_alias} ]] && config_file=${data_dir}/${write_alias}.conf
+[[ -n ${write_alias} ]] && echo ">>> write ${config_file}"
 [[ -n ${write_alias} ]] && echo "ssh_host=${ssh_host}" > ${config_file}
 [[ -n ${write_alias} ]] && echo "ssh_port=${ssh_port}" >> ${config_file}
 [[ -n ${write_alias} ]] && echo "ssh_user=${ssh_user}" >> ${config_file}
