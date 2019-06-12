@@ -4,7 +4,7 @@
 # Name: ssh to http
 # Author: Ztj
 # Email: ztj1993@gmail.com
-# LastDate: 2019-06-11
+# LastDate: 2019-06-12
 # Version: 1.0.0
 ###############
 
@@ -14,7 +14,7 @@ config_file=${data_dir}/${alias}.conf
 socks_host=${socks_host:-127.0.0.1}
 socks_port=${socks_port:-1080}
 http_host=${http_host:-127.0.0.1}
-http_port=${socks_port:-8118}
+http_port=${http_port:-8118}
 
 type brook > /dev/null 2>&1
 [[ $? -ne 0 ]] && echo "Please install brook." && exit 1
@@ -42,7 +42,7 @@ type brook > /dev/null 2>&1
 [[ -n ${write_alias} ]] && echo ">>> write ${config_file}"
 [[ -n ${write_alias} ]] && echo "socks_host=${socks_host}" >> ${config_file}
 [[ -n ${write_alias} ]] && echo "socks_port=${socks_port}" >> ${config_file}
-[[ -n ${write_alias} ]] && echo "http_host=${http_host}" > ${config_file}
+[[ -n ${write_alias} ]] && echo "http_host=${http_host}" >> ${config_file}
 [[ -n ${write_alias} ]] && echo "http_port=${http_port}" >> ${config_file}
 
-brook socks5tohttp -l ${socks_host}:${socks_port} -s ${http_host}:${http_port}
+brook socks5tohttp -l ${http_host}:${http_port} -s ${socks_host}:${socks_port}
