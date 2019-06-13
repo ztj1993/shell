@@ -4,7 +4,7 @@
 # Name: apt install python2 and python3
 # Author: Ztj
 # Email: ztj1993@gmail.com
-# LastDate: 2019-06-11
+# LastDate: 2019-06-13
 # Version: 1.0.0
 # Use: curl -sSL https://dwz.cn/imrR3eVN | sh
 ###############
@@ -26,3 +26,5 @@ pip install virtualenv
 apt-get install -y python3-pip python3-dev
 python3 get-pip.py
 pip3 install virtualenv
+
+rm -rf get-pip.py
