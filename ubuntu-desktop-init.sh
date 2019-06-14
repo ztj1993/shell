@@ -9,11 +9,19 @@
 
 
 read -p ">>> Please enter the snap package path: " snap_pkg_path
+read -p ">>> Please enter the sudo username: " sudo_user
 
 set -e
 set -x
 
 export PATH=/snap/bin:${PATH}
+
+###### 系统配置
+# 免密码
+echo "${sudo_user} ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/${sudo_user}
+
+# 关闭盖子不休眠
+sed -i 's/^#HandleLidSwitch=suspend/HandleLidSwitch=ignore/' /etc/systemd/logind.conf
 
 ###### 源处理
 search="[a-z0-9\.]*.ubuntu.com"
@@ -46,6 +54,15 @@ wget -O /usr/local/bin/phpunit http://phar.phpunit.cn/phpunit.phar
 chmod +x /usr/local/bin/phpunit
 
 ###### 工作环境
+# snap install gnome-3-30-1804 --edge
+if [ -f ${snap_pkg_path}/gnome-3-30-1804.assert ] && [ -f ${snap_pkg_path}/gnome-3-30-1804.snap ]; then
+    echo ">>> snap install gnome-3-30-1804"
+    snap ack gnome-3-30-1804.assert
+    snap install gnome-3-30-1804.snap
+else
+    echo ">>> skip snap install gnome-3-30-1804"
+fi
+
 # snap install phpstorm --classic
 if [ -f ${snap_pkg_path}/phpstorm.assert ] && [ -f ${snap_pkg_path}/phpstorm.snap ]; then
     echo ">>> snap install phpstorm"
@@ -140,12 +157,12 @@ fi
 if [ -f ${snap_pkg_path}/filezilla.assert ] && [ -f ${snap_pkg_path}/filezilla.snap ]; then
     echo ">>> snap install filezilla"
     snap ack filezilla.assert
-    snap install filezilla.snap --beta
+    snap install filezilla.snap
 else
     echo ">>> skip snap install filezilla"
 fi
 
-# Docker
+###### Docker
 curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
 curl -sSL http://t.cn/RQl5OwB | sh -s http://ef017c13.m.daocloud.io
 
@@ -155,8 +172,8 @@ systemctl enable docker.service
 docker run -d --name portainer -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer
 docker update --restart always portainer
 
-# Wine
+###### Wine
 apt-get install -y wine-development
 
-# VirtualBox
+###### VirtualBox
 curl -sSL https://dwz.cn/gh4NlNLr | sh
