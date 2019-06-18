@@ -7,7 +7,7 @@
 # LastDate: 2019-06-12
 # Version: 1.0.0
 # Use:
-#     sudo wget -O /usr/local/bin/socks-to-http https://dwz.cn/VbCv7VKm
+#     sudo wget -O /usr/local/bin/socks-to-http https://dwz.cn/U7TyLslv
 #     sudo chmod +x /usr/local/bin/socks-to-http
 #     socks-to-http
 ###############
