@@ -11,7 +11,6 @@ set -e
 set -x
 
 snap install redis-desktop-manager
-snap install brook
 snap install postman
 snap install ao
 snap install filezilla --beta
