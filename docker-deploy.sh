@@ -5,6 +5,10 @@
 # Author: Ztj
 # Email: ztj1993@gmail.com
 # LastDate: 2019-06-18
+# Use:
+#     wget https://raw.githubusercontent.com/ztj1993/shell/master/docker-deploy.sh
+#     chmod +x docker-deploy.sh
+#     sudo ./docker-deploy.sh
 ###############
 
 # 安装部署
