@@ -4,9 +4,13 @@
 # Name: apt install python2 and python3
 # Author: Ztj
 # Email: ztj1993@gmail.com
-# LastDate: 2019-06-13
-# Version: 1.0.0
-# Use: curl -sSL https://dwz.cn/imrR3eVN | sh
+# LastDate: 2019-06-19
+# Use:
+#     wget https://raw.githubusercontent.com/ztj1993/shell/master/apt-python.sh
+#     chmod +x apt-python.sh
+#     sudo ./apt-python.sh
+#     --- or ---
+#     curl -sSL https://dwz.cn/imrR3eVN | sudo sh
 ###############
 
 set -e
