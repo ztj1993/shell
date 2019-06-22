@@ -23,7 +23,7 @@ type docopts > /dev/null 2>&1
 [[ $? -ne 0 ]] && echo ">>> Please install https://github.com/docopt/docopts." && exit 1
 
 help=$(grep "^##?" "$0" | cut -c 5-)
-version=$(grep "^# LastDate"  "$0" | cut -c 4-)
+version=$(grep "^# LastDate"  "$0" | cut -c 3-)
 eval "$(docopts -h "$help" -V "$version" : "$@")"
 
 install=${install:-false}
@@ -35,6 +35,7 @@ ip=${ip:-127.0.0.1}
 if [[ ${install} == "true" ]]; then
     wget -O /usr/local/bin/hosts https://raw.githubusercontent.com/ztj1993/shell/master/hosts.sh
     chmod +x /usr/local/bin/hosts
+    /usr/local/bin/hosts --version
 fi
 
 if [[ ${add} == "true" ]]; then
