@@ -18,4 +18,4 @@ set -x
 
 wget -O /usr/local/bin/docopts https://github.com/docopt/docopts/releases/download/v0.6.3-alpha1/docopts
 chmod +x /usr/local/bin/docopts
-docopts --version
+/usr/local/bin/docopts --version
