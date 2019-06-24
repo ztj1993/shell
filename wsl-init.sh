@@ -42,6 +42,9 @@ sudo apt-get install -y php7.2-fpm
 sudo apt-get install -y php7.2-mysql
 sudo apt-get install -y php7.2-bcmath
 sudo apt-get install -y php7.2-dev
+sudo apt-get install -y php7.2-mbstring
+sudo apt-get install -y php7.2-curl
+sudo apt-get install -y php7.2-gd
 
 sudo wget -O /usr/local/bin/composer https://getcomposer.org/composer.phar
 sudo chmod +x /usr/local/bin/composer
@@ -53,7 +56,20 @@ sudo chmod +x /usr/local/bin/phpunit
 sudo apt-get install -y build-essential
 
 # Web
+echo 'mysql-server-5.7 mysql-server/root_password password root' | sudo debconf-set-selections
+echo 'mysql-server-5.7 mysql-server/root_password_again password root' | sudo debconf-set-selections
+
 sudo apt-get install -y apache2
 sudo apt-get install -y nginx
 sudo apt-get install -y mysql-server-5.7
 sudo apt-get install -y redis-server
+
+sudo sed -i "s/AllowOverride None/AllowOverride All/g" /etc/apache2/apache2.conf
+sudo a2enmod rewrite
+
+grep "^AcceptFilter http none" /etc/apache2/apache2.conf > /dev/null 2>&1
+[[ $? -ne 0 ]] && echo "AcceptFilter http none" | sudo tee -a /etc/apache2/apache2.conf
+grep "^AcceptFilter https none" /etc/apache2/apache2.conf > /dev/null 2>&1
+[[ $? -ne 0 ]] && echo "AcceptFilter https none" | sudo tee -a /etc/apache2/apache2.conf
+
+sudo usermod -d /var/lib/mysql/ mysql
