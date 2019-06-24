@@ -23,6 +23,13 @@ sudo apt-get install -y libssl-dev libcurl4-openssl-dev
 # 基础软件
 sudo apt-get install -y curl wget git vim
 
+# SSH
+sudo apt-get install -y openssh-server
+sudo sed -i "s@^#PermitRootLogin.*@PermitRootLogin yes@" /etc/ssh/sshd_config
+sudo sed -i "s@^PermitRootLogin.*@PermitRootLogin yes@" /etc/ssh/sshd_config
+sudo sed -i "s@^PasswordAuthentication.*@PasswordAuthentication yes@" /etc/ssh/sshd_config
+sudo DEBIAN_FRONTEND=noninteractive dpkg-reconfigure openssh-server
+
 # Python
 curl -sSL https://dwz.cn/imrR3eVN | sudo sh
 
