@@ -45,6 +45,7 @@ sudo apt-get install -y php7.2-dev
 sudo apt-get install -y php7.2-mbstring
 sudo apt-get install -y php7.2-curl
 sudo apt-get install -y php7.2-gd
+sudo apt-get install -y php7.2-zip
 
 sudo wget -O /usr/local/bin/composer https://getcomposer.org/composer.phar
 sudo chmod +x /usr/local/bin/composer
