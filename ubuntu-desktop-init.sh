@@ -26,6 +26,11 @@ sudo apt-get install -y libssl-dev libcurl4-openssl-dev
 # 基础软件
 sudo apt-get install -y curl wget git vim htop terminator
 
+# l2tp
+sudo apt-get install -y network-manager-l2tp-gnome
+sudo service xl2tpd stop
+sudo update-rc.d xl2tpd disable
+
 # Python
 curl -sSL https://dwz.cn/imrR3eVN | sudo sh
 
