@@ -49,9 +49,14 @@ sudo apt-get install -y php7.2-zip
 
 sudo wget -O /usr/local/bin/composer https://getcomposer.org/composer.phar
 sudo chmod +x /usr/local/bin/composer
-
 sudo wget -O /usr/local/bin/phpunit http://phar.phpunit.cn/phpunit.phar
 sudo chmod +x /usr/local/bin/phpunit
+sudo wget -O /usr/local/bin/phpcs https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar
+sudo chmod +x /usr/local/bin/phpcs
+sudo wget -O /usr/local/bin/phpcbf https://squizlabs.github.io/PHP_CodeSniffer/phpcbf.phar
+sudo chmod +x /usr/local/bin/phpcbf
+sudo wget -O /usr/local/bin/php-cs-fixer https://cs.symfony.com/download/php-cs-fixer-v2.phar
+sudo chmod +x /usr/local/bin/php-cs-fixer
 
 # C/C++
 sudo apt-get install -y build-essential
