@@ -17,7 +17,7 @@ set -x
 # 更新系统
 search="[a-z0-9\.]*.ubuntu.com"
 replace="mirrors.aliyun.com"
-sudo sed -i "s/${search}/${replace}/g" /etc/apt/sources.list
+sed -i "s/${search}/${replace}/g" /etc/apt/sources.list
 
-sudo apt-get -y update
-sudo apt-get -y upgrade
+apt-get -y update
+apt-get -y upgrade
