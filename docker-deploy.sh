@@ -20,7 +20,7 @@ systemctl restart docker.service
 systemctl enable docker.service
 
 # 自定义网络
-docker network create --subnet=172.100.0.0/16 admin_network
+docker network create --subnet=172.100.0.0/16 custom
 
 # 安装管理
 docker run -d --name portainer \
