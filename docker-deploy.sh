@@ -27,6 +27,6 @@ docker run -d --name portainer \
   --net custom \
   --ip 172.100.0.2 \
   --volume /var/run/docker.sock:/var/run/docker.sock \
-  --volume portainer_data:/data
+  --volume portainer_data:/data \
   portainer/portainer
 docker update --restart always portainer
