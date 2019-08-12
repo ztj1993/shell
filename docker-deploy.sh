@@ -24,8 +24,9 @@ docker network create --subnet=172.100.0.0/16 custom
 
 # 安装管理
 docker run -d --name portainer \
-  --net admin_network \
+  --net custom \
   --ip 172.100.0.2 \
   --volume /var/run/docker.sock:/var/run/docker.sock \
+  --volume portainer_data:/data
   portainer/portainer
 docker update --restart always portainer
