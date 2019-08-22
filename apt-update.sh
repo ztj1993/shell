@@ -21,3 +21,4 @@ sed -i "s/${search}/${replace}/g" /etc/apt/sources.list
 
 apt-get -y update
 apt-get -y upgrade
+apt-get -y clean
