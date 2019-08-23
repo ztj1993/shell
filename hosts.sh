@@ -1,9 +1,10 @@
 #!/bin/bash
+
 ###############
 # Name: hosts setting
 # Author: Ztj
 # Email: ztj1993@gmail.com
-# LastDate: 2019-06-23
+# LastDate: 2019-08-23
 # Use:
 #     wget https://raw.githubusercontent.com/ztj1993/shell/master/hosts.sh
 #     chmod +x hosts.sh
@@ -11,13 +12,30 @@
 ###############
 
 ##?
-##? Usage:
-##?   hosts --help
-##?   hosts --version
-##?   hosts install
-##?   hosts add --host=<host> --ip=<ip>
-##?   hosts del --host=<host>
+##? This script is used to set hosts
 ##?
+##? Usage:
+##?     hosts --help
+##?     hosts --version
+##?     hosts install
+##?     hosts add --host=<host> --ip=<ip>
+##?     hosts del --host=<host>
+##?
+##? Options:
+##?     --help        Show help options.
+##?     --version     Print program version.
+##?
+##? Arguments:
+##?     --host        Host
+##?     --ip          Ip
+##?
+##? Actions:
+##?     install       Install self script
+##?     add           Add new item
+##?     del           Delete item
+##?
+
+set -e
 
 type docopts > /dev/null 2>&1
 [[ $? -ne 0 ]] && echo ">>> Please install https://github.com/docopt/docopts." && exit 1
