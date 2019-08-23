@@ -15,6 +15,7 @@
 ##? This script is used to set hosts
 ##?
 ##? Usage:
+##?     hosts
 ##?     hosts --help
 ##?     hosts --version
 ##?     hosts install
@@ -22,17 +23,15 @@
 ##?     hosts del --host=<host>
 ##?
 ##? Options:
-##?     --help        Show help options.
-##?     --version     Print program version.
-##?
-##? Arguments:
-##?     --host        Host
-##?     --ip          Ip
+##?     --help        show help options.
+##?     --version     print program version.
+##?     --host=host   host
+##?     --ip=ip       ip
 ##?
 ##? Actions:
-##?     install       Install self script
-##?     add           Add new item
-##?     del           Delete item
+##?     install       install self script
+##?     add           add new host
+##?     del           delete host
 ##?
 
 set -e
@@ -47,6 +46,7 @@ eval "$(docopts -h "$help" -V "$version" : "$@")"
 install=${install:-false}
 add=${add:-false}
 del=${del:-false}
+
 host=${host:-localhost}
 ip=${ip:-127.0.0.1}
 
