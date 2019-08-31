@@ -28,7 +28,7 @@ read username
 /usr/bin/ssh $host -l $username
 ' | tee /usr/bin/proxylogin > /dev/null
 
-[[ ! -f /usr/bin/proxylogin ]] && [[ $? -ne 0 ]] && echo "Error: proxy login file write failure." && exit 1
+[[ ! -f /usr/bin/proxylogin ]] && [[ $? -ne 0 ]] && echo ">>> Error: proxy login file write failure." && exit 1
 
 groupadd -f proxy
 
