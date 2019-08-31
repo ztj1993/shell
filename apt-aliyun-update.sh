@@ -13,7 +13,9 @@
 
 set -e
 
-# 更新系统
+date_time=$(date +%Y-%m-%d-%H-%M-%S)
+cp /etc/apt/sources.list /etc/apt/sources.list.backup.${date_time}
+
 search="[a-z0-9\.]*.ubuntu.com"
 replace="mirrors.aliyun.com"
 sed -i "s/${search}/${replace}/g" /etc/apt/sources.list
