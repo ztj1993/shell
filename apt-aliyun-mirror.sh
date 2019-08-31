@@ -1,14 +1,14 @@
 #!/bin/bash
 
 ###############
-# Name: apt aliyun update
+# Name: apt aliyun mirror
 # Author: Ztj
 # Email: ztj1993@gmail.com
 # LastDate: 2019-06-19
 # Use:
-#     wget https://raw.githubusercontent.com/ztj1993/shell/master/apt-aliyun-update.sh
-#     chmod +x apt-aliyun-update.sh
-#     sudo ./apt-aliyun-update.sh
+#     wget https://raw.githubusercontent.com/ztj1993/shell/master/apt-aliyun-mirror.sh
+#     chmod +x apt-aliyun-mirror.sh
+#     sudo ./apt-aliyun-mirror.sh
 ###############
 
 set -e
