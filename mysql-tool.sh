@@ -6,23 +6,23 @@
 # Email: ztj1993@gmail.com
 # LastDate: 2019-08-23
 # Use:
-#     wget https://raw.githubusercontent.com/ztj1993/shell/master/mysql_tool.sh
-#     chmod +x mysql_tool.sh
-#     ./mysql_tool.sh
+#     wget https://raw.githubusercontent.com/ztj1993/shell/master/mysql-tool.sh
+#     chmod +x mysql-tool.sh
+#     ./mysql-tool.sh
 ###############
 
 ##?
 ##? This script is mysql tool
 ##?
 ##? Usage:
-##?     mysql_tool
-##?     mysql_tool --help
-##?     mysql_tool --version
-##?     mysql_tool install
-##?     mysql_tool [options] import <sql_file>
-##?     mysql_tool [options] export <sql_dir>
-##?     mysql_tool [options] adduser <user_host> <user_name> <user_password>
-##?     mysql_tool [options] passwd <user_host> <user_name> <user_password>
+##?     mysql-tool
+##?     mysql-tool --help
+##?     mysql-tool --version
+##?     mysql-tool install
+##?     mysql-tool [options] import <sql_file>
+##?     mysql-tool [options] export <sql_dir>
+##?     mysql-tool [options] adduser <user_host> <user_name> <user_password>
+##?     mysql-tool [options] passwd <user_host> <user_name> <user_password>
 ##?
 ##? Options:
 ##?     --help                   show help options.
@@ -79,9 +79,9 @@ datetime=$(date +%Y-%m-%d-%H-%M-%S)
 mysql_params="--host=${host} --port=${port} --user=${user} --password=${password}"
 
 if [[ ${install} == "true" ]]; then
-    wget -O /usr/local/bin/mysql_tool https://raw.githubusercontent.com/ztj1993/shell/master/mysql_tool.sh
-    chmod +x /usr/local/bin/mysql_tool
-    /usr/local/bin/mysql_tool --version
+    wget -O /usr/local/bin/mysql-tool https://raw.githubusercontent.com/ztj1993/shell/master/mysql-tool.sh
+    chmod +x /usr/local/bin/mysql-tool
+    /usr/local/bin/mysql-tool --version
 fi
 
 if [[ ${import} == "true" ]]; then
