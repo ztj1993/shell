@@ -19,7 +19,7 @@ set -e
 skip_confirm=${1:-no}
 
 [[ "${skip_confirm}" != "yes" ]] && read -p ">>> Please confirm the os is amd64(yes/no): " read_confirm
-[[ "${skip_confirm}" != "yes" ]] && [[ ${read_confirm} != "yes" ]] && echo ">>> Not confirmed." && exit 1
+[[ "${skip_confirm}" != "yes" ]] && [[ "${read_confirm}" != "yes" ]] && echo ">>> Not confirmed." && exit 1
 
 wget -O /usr/local/bin/docopts https://github.com/docopt/docopts/releases/download/v0.6.3-rc1/docopts_linux_amd64
 chmod +x /usr/local/bin/docopts
