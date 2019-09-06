@@ -22,6 +22,7 @@ echo 'mysql-server-5.7 mysql-server/root_password_again password 123456' | debco
 apt-get install -y nginx
 apt-get install -y apache2
 apt-get install -y mysql-server-5.7
+apt-get install -y redis-server
 apt-get install -y mongodb
 
 # install php
