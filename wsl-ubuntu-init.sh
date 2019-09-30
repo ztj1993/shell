@@ -17,14 +17,5 @@ set -x
 # 免密码
 echo "$(whoami) ALL=(ALL) NOPASSWD:ALL" | tee /etc/sudoers.d/$(whoami)
 
-# 基础库
-apt-get install -y libssl-dev libcurl4-openssl-dev
-
 # 基础软件
 apt-get install -y curl wget git vim
-
-# GoLang
-sudo apt-get install -y golang
-
-# C/C++
-sudo apt-get install -y build-essential
