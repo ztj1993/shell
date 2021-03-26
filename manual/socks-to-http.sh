@@ -1,17 +1,11 @@
 #!/bin/bash
 
 ###############
-# Name: ssh to http
+# Name: socks to http
 # Author: Ztj
 # Email: ztj1993@gmail.com
-# LastDate: 2019-06-12
-# Version: 1.0.0
-# Use:
-#     sudo wget -O /usr/local/bin/brook http://t.cn/Ai9iVUH0
-#     sudo chmod +x /usr/local/bin/brook
-#     sudo wget -O /usr/local/bin/socks-to-http https://dwz.cn/U7TyLslv
-#     sudo chmod +x /usr/local/bin/socks-to-http
-#     socks-to-http
+# CreateDate: 2019-06-12
+# UpdateDate: 2021-03-26
 ###############
 
 alias=${1:-default}
