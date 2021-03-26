@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ###############
-# Name: WSL Ubuntu 批处理
+# Name: WSL Ubuntu 初始化
 # Author: Ztj
 # Email: ztj1993@gmail.com
 # CreateDate: 2019-06-24
