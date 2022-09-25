@@ -19,6 +19,6 @@ sed -i "s@^#PermitRootLogin.*@PermitRootLogin yes@" /etc/ssh/sshd_config
 sed -i "s@^PermitRootLogin.*@PermitRootLogin yes@" /etc/ssh/sshd_config
 sed -i "s@^PasswordAuthentication.*@PasswordAuthentication yes@" /etc/ssh/sshd_config
 
-[[ ! -f /etc/ssh/ssh_host_rsa_key ]] && DEBIAN_FRONTEND=noninteractive dpkg-reconfigure openssh-server
+[[ ! -f /etc/ssh/ssh_host_rsa_key ]] && dpkg-reconfigure --frontend noninteractive openssh-server
 
 /etc/init.d/ssh restart
